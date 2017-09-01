@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new FOS\RestBundle\FOSRestBundle(),
             new JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
             new BetFormulaBundle\BetFormulaBundle(),
+            new ErgastClientBundle\ErgastClientBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {
