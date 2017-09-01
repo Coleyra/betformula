@@ -28,6 +28,22 @@ class Formule
      */
     private $forId;
 
+    public function getForLibelle() {
+        return $this->forLibelle;
+    }
 
+    public function getForId() {
+        return $this->forId;
+    }
+
+    public function setForLibelle($forLibelle) {
+        $this->forLibelle = $forLibelle;
+        return $this;
+    }
+
+    public function setForId($forId) {
+        $this->forId = $forId;
+        return $this;
+    }
 }
 

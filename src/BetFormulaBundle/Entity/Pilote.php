@@ -35,6 +35,33 @@ class Pilote
      */
     private $pilId;
 
+    public function getPilNom() {
+        return $this->pilNom;
+    }
+
+    public function getPilPrenom() {
+        return $this->pilPrenom;
+    }
+
+    public function getPilId() {
+        return $this->pilId;
+    }
+
+    public function setPilNom($pilNom) {
+        $this->pilNom = $pilNom;
+        return $this;
+    }
+
+    public function setPilPrenom($pilPrenom) {
+        $this->pilPrenom = $pilPrenom;
+        return $this;
+    }
+
+    public function setPilId($pilId) {
+        $this->pilId = $pilId;
+        return $this;
+    }
+
 
 }
 

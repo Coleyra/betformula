@@ -22,6 +22,13 @@ class Resultat
     /**
      * @var integer
      *
+     * @ORM\Column(name="RES_POINT", type="integer", nullable=false)
+     */
+    private $resPoint;
+
+    /**
+     * @var integer
+     *
      * @ORM\Column(name="RES_ID", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -47,6 +54,51 @@ class Resultat
      * })
      */
     private $fkGp;
+
+    public function getResPosition() {
+        return $this->resPosition;
+    }
+
+    public function getResId() {
+        return $this->resId;
+    }
+
+    public function getFkPil() {
+        return $this->fkPil;
+    }
+
+    public function getFkGp() {
+        return $this->fkGp;
+    }
+
+    public function setResPosition($resPosition) {
+        $this->resPosition = $resPosition;
+        return $this;
+    }
+
+    public function setResId($resId) {
+        $this->resId = $resId;
+        return $this;
+    }
+
+    public function setFkPil(\BetFormulaBundle\Entity\Pilote $fkPil) {
+        $this->fkPil = $fkPil;
+        return $this;
+    }
+
+    public function setFkGp(\BetFormulaBundle\Entity\Gp $fkGp) {
+        $this->fkGp = $fkGp;
+        return $this;
+    }
+    public function getResPoint() {
+        return $this->resPoint;
+    }
+
+    public function setResPoint($resPoint) {
+        $this->resPoint = $resPoint;
+        return $this;
+    }
+
 
 
 }

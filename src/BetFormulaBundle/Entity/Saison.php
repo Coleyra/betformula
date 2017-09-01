@@ -28,6 +28,24 @@ class Saison
      */
     private $saiId;
 
+    public function getSaiCode() {
+        return $this->saiCode;
+    }
+
+    public function getSaiId() {
+        return $this->saiId;
+    }
+
+    public function setSaiCode($saiCode) {
+        $this->saiCode = $saiCode;
+        return $this;
+    }
+
+    public function setSaiId($saiId) {
+        $this->saiId = $saiId;
+        return $this;
+    }
+
 
 }
 

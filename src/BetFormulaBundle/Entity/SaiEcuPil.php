@@ -48,6 +48,33 @@ class SaiEcuPil
      */
     private $fkEcu;
 
+    public function getFkSai() {
+        return $this->fkSai;
+    }
+
+    public function getFkPil() {
+        return $this->fkPil;
+    }
+
+    public function getFkEcu() {
+        return $this->fkEcu;
+    }
+
+    public function setFkSai(\BetFormulaBundle\Entity\Saison $fkSai) {
+        $this->fkSai = $fkSai;
+        return $this;
+    }
+
+    public function setFkPil(\BetFormulaBundle\Entity\Pilote $fkPil) {
+        $this->fkPil = $fkPil;
+        return $this;
+    }
+
+    public function setFkEcu(\BetFormulaBundle\Entity\Ecurie $fkEcu) {
+        $this->fkEcu = $fkEcu;
+        return $this;
+    }
+
 
 }
 

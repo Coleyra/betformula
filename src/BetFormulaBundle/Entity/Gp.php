@@ -48,6 +48,42 @@ class Gp
      */
     private $fkFor;
 
+    public function getGpLibelle() {
+        return $this->gpLibelle;
+    }
+
+    public function getGpId() {
+        return $this->gpId;
+    }
+
+    public function getFkSai() {
+        return $this->fkSai;
+    }
+
+    public function getFkFor() {
+        return $this->fkFor;
+    }
+
+    public function setGpLibelle($gpLibelle) {
+        $this->gpLibelle = $gpLibelle;
+        return $this;
+    }
+
+    public function setGpId($gpId) {
+        $this->gpId = $gpId;
+        return $this;
+    }
+
+    public function setFkSai(\BetFormulaBundle\Entity\Saison $fkSai) {
+        $this->fkSai = $fkSai;
+        return $this;
+    }
+
+    public function setFkFor(\BetFormulaBundle\Entity\Formule $fkFor) {
+        $this->fkFor = $fkFor;
+        return $this;
+    }
+
 
 }
 

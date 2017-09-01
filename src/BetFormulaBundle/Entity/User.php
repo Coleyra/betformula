@@ -49,6 +49,51 @@ class User
      */
     private $usrId;
 
+    public function getUsrPseudo() {
+        return $this->usrPseudo;
+    }
+
+    public function getUsrPwd() {
+        return $this->usrPwd;
+    }
+
+    public function getUsrEmail() {
+        return $this->usrEmail;
+    }
+
+    public function getUsrNbPoint() {
+        return $this->usrNbPoint;
+    }
+
+    public function getUsrId() {
+        return $this->usrId;
+    }
+
+    public function setUsrPseudo($usrPseudo) {
+        $this->usrPseudo = $usrPseudo;
+        return $this;
+    }
+
+    public function setUsrPwd($usrPwd) {
+        $this->usrPwd = $usrPwd;
+        return $this;
+    }
+
+    public function setUsrEmail($usrEmail) {
+        $this->usrEmail = $usrEmail;
+        return $this;
+    }
+
+    public function setUsrNbPoint($usrNbPoint) {
+        $this->usrNbPoint = $usrNbPoint;
+        return $this;
+    }
+
+    public function setUsrId($usrId) {
+        $this->usrId = $usrId;
+        return $this;
+    }
+
 
 }
 

@@ -58,6 +58,51 @@ class Pronostic
      */
     private $fkGp;
 
+    public function getPrnPosition() {
+        return $this->prnPosition;
+    }
+
+    public function getPrnId() {
+        return $this->prnId;
+    }
+
+    public function getFkUsr() {
+        return $this->fkUsr;
+    }
+
+    public function getFkPil() {
+        return $this->fkPil;
+    }
+
+    public function getFkGp() {
+        return $this->fkGp;
+    }
+
+    public function setPrnPosition($prnPosition) {
+        $this->prnPosition = $prnPosition;
+        return $this;
+    }
+
+    public function setPrnId($prnId) {
+        $this->prnId = $prnId;
+        return $this;
+    }
+
+    public function setFkUsr(\BetFormulaBundle\Entity\User $fkUsr) {
+        $this->fkUsr = $fkUsr;
+        return $this;
+    }
+
+    public function setFkPil(\BetFormulaBundle\Entity\Pilote $fkPil) {
+        $this->fkPil = $fkPil;
+        return $this;
+    }
+
+    public function setFkGp(\BetFormulaBundle\Entity\Gp $fkGp) {
+        $this->fkGp = $fkGp;
+        return $this;
+    }
+
 
 }
 

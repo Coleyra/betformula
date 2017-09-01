@@ -38,6 +38,31 @@ class Ecurie
      */
     private $fkFor;
 
+    public function getEcuLibelle() {
+        return $this->ecuLibelle;
+    }
 
+    public function getEcuId() {
+        return $this->ecuId;
+    }
+
+    public function getFkFor() {
+        return $this->fkFor;
+    }
+
+    public function setEcuLibelle($ecuLibelle) {
+        $this->ecuLibelle = $ecuLibelle;
+        return $this;
+    }
+
+    public function setEcuId($ecuId) {
+        $this->ecuId = $ecuId;
+        return $this;
+    }
+
+    public function setFkFor(\BetFormulaBundle\Entity\Formule $fkFor) {
+        $this->fkFor = $fkFor;
+        return $this;
+    }
 }
 
