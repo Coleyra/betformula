@@ -13,15 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
 class User
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="USR_ID", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $usrId;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="USR_PSEUDO", type="string", length=128, nullable=false)
@@ -49,111 +40,15 @@ class User
      */
     private $usrNbPoint;
 
-
-
     /**
-     * Set usrPseudo
+     * @var integer
      *
-     * @param string $usrPseudo
-     *
-     * @return User
+     * @ORM\Column(name="USR_ID", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    public function setUsrPseudo($usrPseudo)
-    {
-        $this->usrPseudo = $usrPseudo;
+    private $usrId;
 
-        return $this;
-    }
 
-    /**
-     * Get usrPseudo
-     *
-     * @return string
-     */
-    public function getUsrPseudo()
-    {
-        return $this->usrPseudo;
-    }
-
-    /**
-     * Set usrPwd
-     *
-     * @param string $usrPwd
-     *
-     * @return User
-     */
-    public function setUsrPwd($usrPwd)
-    {
-        $this->usrPwd = $usrPwd;
-
-        return $this;
-    }
-
-    /**
-     * Get usrPwd
-     *
-     * @return string
-     */
-    public function getUsrPwd()
-    {
-        return $this->usrPwd;
-    }
-
-    /**
-     * Set usrEmail
-     *
-     * @param string $usrEmail
-     *
-     * @return User
-     */
-    public function setUsrEmail($usrEmail)
-    {
-        $this->usrEmail = $usrEmail;
-
-        return $this;
-    }
-
-    /**
-     * Get usrEmail
-     *
-     * @return string
-     */
-    public function getUsrEmail()
-    {
-        return $this->usrEmail;
-    }
-
-    /**
-     * Set usrNbPoint
-     *
-     * @param integer $usrNbPoint
-     *
-     * @return User
-     */
-    public function setUsrNbPoint($usrNbPoint)
-    {
-        $this->usrNbPoint = $usrNbPoint;
-
-        return $this;
-    }
-
-    /**
-     * Get usrNbPoint
-     *
-     * @return integer
-     */
-    public function getUsrNbPoint()
-    {
-        return $this->usrNbPoint;
-    }
-
-    /**
-     * Get usrId
-     *
-     * @return integer
-     */
-    public function getUsrId()
-    {
-        return $this->usrId;
-    }
 }
+

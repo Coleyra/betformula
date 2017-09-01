@@ -13,15 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
 class Gp
 {
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="GP_ID", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $gpId;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="GP_LIBELLE", type="string", length=256, nullable=false)
@@ -29,106 +20,34 @@ class Gp
     private $gpLibelle;
 
     /**
-     * @var \Formule
+     * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="Formule")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="FK_FOR_ID", referencedColumnName="FOR_ID")
-     * })
+     * @ORM\Column(name="GP_ID", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $fkFor;
+    private $gpId;
 
     /**
-     * @var \Saison
+     * @var \BetFormulaBundle\Entity\Saison
      *
-     * @ORM\ManyToOne(targetEntity="Saison")
+     * @ORM\ManyToOne(targetEntity="BetFormulaBundle\Entity\Saison")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="FK_SAI_ID", referencedColumnName="SAI_ID")
      * })
      */
     private $fkSai;
 
-
-
     /**
-     * Set gpLibelle
+     * @var \BetFormulaBundle\Entity\Formule
      *
-     * @param string $gpLibelle
-     *
-     * @return Gp
+     * @ORM\ManyToOne(targetEntity="BetFormulaBundle\Entity\Formule")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="FK_FOR_ID", referencedColumnName="FOR_ID")
+     * })
      */
-    public function setGpLibelle($gpLibelle)
-    {
-        $this->gpLibelle = $gpLibelle;
+    private $fkFor;
 
-        return $this;
-    }
 
-    /**
-     * Get gpLibelle
-     *
-     * @return string
-     */
-    public function getGpLibelle()
-    {
-        return $this->gpLibelle;
-    }
-
-    /**
-     * Get gpId
-     *
-     * @return integer
-     */
-    public function getGpId()
-    {
-        return $this->gpId;
-    }
-
-    /**
-     * Set fkFor
-     *
-     * @param \BetFormulaBundle\Entity\Formule $fkFor
-     *
-     * @return Gp
-     */
-    public function setFkFor(\BetFormulaBundle\Entity\Formule $fkFor = null)
-    {
-        $this->fkFor = $fkFor;
-
-        return $this;
-    }
-
-    /**
-     * Get fkFor
-     *
-     * @return \BetFormulaBundle\Entity\Formule
-     */
-    public function getFkFor()
-    {
-        return $this->fkFor;
-    }
-
-    /**
-     * Set fkSai
-     *
-     * @param \BetFormulaBundle\Entity\Saison $fkSai
-     *
-     * @return Gp
-     */
-    public function setFkSai(\BetFormulaBundle\Entity\Saison $fkSai = null)
-    {
-        $this->fkSai = $fkSai;
-
-        return $this;
-    }
-
-    /**
-     * Get fkSai
-     *
-     * @return \BetFormulaBundle\Entity\Saison
-     */
-    public function getFkSai()
-    {
-        return $this->fkSai;
-    }
 }
+

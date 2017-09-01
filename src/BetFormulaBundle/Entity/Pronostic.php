@@ -15,33 +15,33 @@ class Pronostic
     /**
      * @var integer
      *
-     * @ORM\Column(name="PRN_ID", type="integer", nullable=false)
+     * @ORM\Column(name="PRN_POSITION", type="integer", nullable=false)
+     */
+    private $prnPosition;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="PRN_ID", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $prnId;
 
     /**
-     * @var integer
+     * @var \BetFormulaBundle\Entity\User
      *
-     * @ORM\Column(name="PRN_POSITION", type="integer", nullable=false)
-     */
-    private $prnPosition;
-
-    /**
-     * @var \Gp
-     *
-     * @ORM\ManyToOne(targetEntity="Gp")
+     * @ORM\ManyToOne(targetEntity="BetFormulaBundle\Entity\User")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="FK_GP_ID", referencedColumnName="GP_ID")
+     *   @ORM\JoinColumn(name="FK_USR_ID", referencedColumnName="USR_ID")
      * })
      */
-    private $fkGp;
+    private $fkUsr;
 
     /**
-     * @var \Pilote
+     * @var \BetFormulaBundle\Entity\Pilote
      *
-     * @ORM\ManyToOne(targetEntity="Pilote")
+     * @ORM\ManyToOne(targetEntity="BetFormulaBundle\Entity\Pilote")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="FK_PIL_ID", referencedColumnName="PIL_ID")
      * })
@@ -49,120 +49,15 @@ class Pronostic
     private $fkPil;
 
     /**
-     * @var \User
+     * @var \BetFormulaBundle\Entity\Gp
      *
-     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\ManyToOne(targetEntity="BetFormulaBundle\Entity\Gp")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="FK_USR_ID", referencedColumnName="USR_ID")
+     *   @ORM\JoinColumn(name="FK_GP_ID", referencedColumnName="GP_ID")
      * })
      */
-    private $fkUsr;
+    private $fkGp;
 
 
-
-    /**
-     * Set prnPosition
-     *
-     * @param integer $prnPosition
-     *
-     * @return Pronostic
-     */
-    public function setPrnPosition($prnPosition)
-    {
-        $this->prnPosition = $prnPosition;
-
-        return $this;
-    }
-
-    /**
-     * Get prnPosition
-     *
-     * @return integer
-     */
-    public function getPrnPosition()
-    {
-        return $this->prnPosition;
-    }
-
-    /**
-     * Get prnId
-     *
-     * @return integer
-     */
-    public function getPrnId()
-    {
-        return $this->prnId;
-    }
-
-    /**
-     * Set fkGp
-     *
-     * @param \BetFormulaBundle\Entity\Gp $fkGp
-     *
-     * @return Pronostic
-     */
-    public function setFkGp(\BetFormulaBundle\Entity\Gp $fkGp = null)
-    {
-        $this->fkGp = $fkGp;
-
-        return $this;
-    }
-
-    /**
-     * Get fkGp
-     *
-     * @return \BetFormulaBundle\Entity\Gp
-     */
-    public function getFkGp()
-    {
-        return $this->fkGp;
-    }
-
-    /**
-     * Set fkPil
-     *
-     * @param \BetFormulaBundle\Entity\Pilote $fkPil
-     *
-     * @return Pronostic
-     */
-    public function setFkPil(\BetFormulaBundle\Entity\Pilote $fkPil = null)
-    {
-        $this->fkPil = $fkPil;
-
-        return $this;
-    }
-
-    /**
-     * Get fkPil
-     *
-     * @return \BetFormulaBundle\Entity\Pilote
-     */
-    public function getFkPil()
-    {
-        return $this->fkPil;
-    }
-
-    /**
-     * Set fkUsr
-     *
-     * @param \BetFormulaBundle\Entity\User $fkUsr
-     *
-     * @return Pronostic
-     */
-    public function setFkUsr(\BetFormulaBundle\Entity\User $fkUsr = null)
-    {
-        $this->fkUsr = $fkUsr;
-
-        return $this;
-    }
-
-    /**
-     * Get fkUsr
-     *
-     * @return \BetFormulaBundle\Entity\User
-     */
-    public function getFkUsr()
-    {
-        return $this->fkUsr;
-    }
 }
+
