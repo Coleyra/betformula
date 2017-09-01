@@ -13,6 +13,7 @@ use BetFormulaBundle\Entity\Formule;
 use BetFormulaBundle\Entity\Pilote;
 use BetFormulaBundle\Entity\Gp;
 use BetFormulaBundle\Entity\Resultat;
+use BetFormulaBundle\Entity\SaiEcuPil;
 
 class ErgastCommand extends ContainerAwareCommand
 {
@@ -52,10 +53,10 @@ class ErgastCommand extends ContainerAwareCommand
         $constructors = $apiManager->get('f1', 'constructors', '2017');
         foreach($constructors->MRData->ConstructorTable->Constructors as $constructor) {
             $progressBar->setMessage('Adding constructor : ' . $constructor->name);
-            $ecurie = new Ecurie();
-            $ecurie->setEcuLibelle($constructor->name);
-            $ecurie->setFkFor($serie);
-            $em->persist($ecurie);
+            $ecurie[$constructor->constructorId] = new Ecurie();
+            $ecurie[$constructor->constructorId]->setEcuLibelle($constructor->name);
+            $ecurie[$constructor->constructorId]->setFkFor($serie);
+            $em->persist($ecurie[$constructor->constructorId]);
         }
         $em->flush();
         $progressBar->advance();
@@ -69,6 +70,11 @@ class ErgastCommand extends ContainerAwareCommand
             $pilote[$driver->Driver->driverId]->setPilNom($driver->Driver->familyName);
             $pilote[$driver->Driver->driverId]->setPilPrenom($driver->Driver->givenName);
             $em->persist($pilote[$driver->Driver->driverId]);
+            $sep = new SaiEcuPil();
+            $sep->setFkSai($season);
+            $sep->setFkPil($pilote[$driver->Driver->driverId]);
+            $sep->setFkEcu($ecurie[$driver->Constructors[0]->constructorId]);
+            $em->persist($sep);
         }
         $em->flush();
         $progressBar->advance();
@@ -93,6 +99,7 @@ class ErgastCommand extends ContainerAwareCommand
                     $resultat->setFkGp($gpe);
                     $resultat->setFkPil($pilote[$result->Driver->driverId]);
                     $resultat->setResPosition($result->position);
+                    $resultat->setResPoint($result->points);
                     $em->persist($resultat);
                 }
             }
