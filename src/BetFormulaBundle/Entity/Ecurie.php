@@ -38,6 +38,13 @@ class Ecurie
      */
     private $fkFor;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="API_CONSTRUCTOR_ID", type="string")
+     */
+    private $apiConstructorId;
+
     public function getEcuLibelle() {
         return $this->ecuLibelle;
     }
@@ -64,5 +71,16 @@ class Ecurie
         $this->fkFor = $fkFor;
         return $this;
     }
+
+    public function getApiConstructorId() {
+        return $this->apiConstructorId;
+    }
+
+    public function setApiConstructorId($apiConstructorId) {
+        $this->apiConstructorId = $apiConstructorId;
+        return $this;
+    }
+
+
 }
 

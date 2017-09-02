@@ -35,6 +35,13 @@ class Pilote
      */
     private $pilId;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="API_DRIVER_ID", type="string")
+     */
+    private $apiDriverId;
+
     public function getPilNom() {
         return $this->pilNom;
     }
@@ -62,6 +69,14 @@ class Pilote
         return $this;
     }
 
+    public function getApiDriverId() {
+        return $this->apiDriverId;
+    }
+
+    public function setApiDriverId($apiDriverId) {
+        $this->apiDriverId = $apiDriverId;
+        return $this;
+    }
 
 }
 

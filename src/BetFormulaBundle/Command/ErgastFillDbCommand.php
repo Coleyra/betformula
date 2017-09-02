@@ -1,5 +1,4 @@
 <?php
-// src/AppBundle/Command/CreateUserCommand.php
 namespace BetFormulaBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
@@ -15,7 +14,7 @@ use BetFormulaBundle\Entity\Gp;
 use BetFormulaBundle\Entity\Resultat;
 use BetFormulaBundle\Entity\SaiEcuPil;
 
-class ErgastCommand extends ContainerAwareCommand
+class ErgastFillDbCommand extends ContainerAwareCommand
 {
     protected function configure()
     {
@@ -56,6 +55,7 @@ class ErgastCommand extends ContainerAwareCommand
             $ecurie[$constructor->constructorId] = new Ecurie();
             $ecurie[$constructor->constructorId]->setEcuLibelle($constructor->name);
             $ecurie[$constructor->constructorId]->setFkFor($serie);
+            $ecurie[$constructor->constructorId]->setApiConstructorId($constructor->constructorId);
             $em->persist($ecurie[$constructor->constructorId]);
         }
         $em->flush();
@@ -69,6 +69,7 @@ class ErgastCommand extends ContainerAwareCommand
             $pilote[$driver->Driver->driverId] = new Pilote();
             $pilote[$driver->Driver->driverId]->setPilNom($driver->Driver->familyName);
             $pilote[$driver->Driver->driverId]->setPilPrenom($driver->Driver->givenName);
+            $pilote[$driver->Driver->driverId]->setApiDriverId($driver->Driver->driverId);
             $em->persist($pilote[$driver->Driver->driverId]);
             $sep = new SaiEcuPil();
             $sep->setFkSai($season);
@@ -87,6 +88,7 @@ class ErgastCommand extends ContainerAwareCommand
             $gpe->setFkFor($serie);
             $gpe->setFkSai($season);
             $gpe->setGpLibelle($gp->raceName);
+            $gpe->setGpRound($gp->round);
             $em->persist($gpe);
 
             $progressBar->setMessage('Filling Results for GP : ' . $gp->raceName);

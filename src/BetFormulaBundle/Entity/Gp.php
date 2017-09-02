@@ -48,6 +48,13 @@ class Gp
      */
     private $fkFor;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="GP_ROUND", type="integer")
+     */
+    private $gpRound;
+
     public function getGpLibelle() {
         return $this->gpLibelle;
     }
@@ -84,6 +91,13 @@ class Gp
         return $this;
     }
 
+    public function getGpRound() {
+        return $this->gpRound;
+    }
 
+    public function setGpRound($gpRound) {
+        $this->gpRound = $gpRound;
+        return $this;
+    }
 }
 
