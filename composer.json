@@ -24,7 +24,8 @@
         "twbs/bootstrap": "3.3.*",
         "components/jquery": "3.2.*",
         "javiereguiluz/easyadmin-bundle": "^1.15",
-        "mashape/unirest-php": "2.*"
+        "mashape/unirest-php": "2.*",
+        "friendsofsymfony/user-bundle": "2.*"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
