@@ -22,7 +22,6 @@
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "^2.0",
         "twbs/bootstrap": "3.3.*",
-        "friendsofsymfony/rest-bundle": "2.2.*",
         "components/jquery": "3.2.*",
         "javiereguiluz/easyadmin-bundle": "^1.15",
         "mashape/unirest-php": "2.*"
