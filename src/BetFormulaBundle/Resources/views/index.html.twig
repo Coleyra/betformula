@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h1>Bet Formula</h1>
+<h2>Season 2017</h2>
+<ul>
+    {% for gp in gps %}
+        <li>
+            <h3>GP {{gp.gpId}} : {{gp.gpLibelle}}</h3>
+            <ul>
+                {% for result in gp.results %}
+                    <li>{{ result.resPosition }} : {{ result.fkPil.pilNom }}</li>
+                {% endfor %}
+            </ul>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

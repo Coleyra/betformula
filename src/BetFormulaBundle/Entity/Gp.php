@@ -55,6 +55,11 @@ class Gp
      */
     private $gpRound;
 
+    /**
+     * @ORM\OneToMany(targetEntity="BetFormulaBundle\Entity\Resultat", mappedBy="fkGp")
+     */
+    private $results;
+
     public function getGpLibelle() {
         return $this->gpLibelle;
     }
@@ -98,6 +103,10 @@ class Gp
     public function setGpRound($gpRound) {
         $this->gpRound = $gpRound;
         return $this;
+    }
+
+    public function getResults() {
+        return $this->results;
     }
 }
 
