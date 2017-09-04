@@ -1,5 +1,5 @@
 <?php
-namespace BetFormulaBundle\Repository;
+namespace BetFormulaBundle\Entity;
 /**
  * UserRepository
  *
