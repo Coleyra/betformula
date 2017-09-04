@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Gp
  *
  * @ORM\Table(name="gp", indexes={@ORM\Index(name="fk_saison_gp", columns={"FK_SAI_ID"}), @ORM\Index(name="fk_for_gp", columns={"FK_FOR_ID"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="BetFormulaBundle\Entity\GpRepository")
  */
 class Gp
 {
@@ -54,6 +54,13 @@ class Gp
      * @ORM\Column(name="GP_ROUND", type="integer")
      */
     private $gpRound;
+
+    /**
+     * @var datetime
+     *
+     * @ORM\Column(name="GP_DATE", type="datetime")
+     */
+    private $gpDate;
 
     /**
      * @ORM\OneToMany(targetEntity="BetFormulaBundle\Entity\Resultat", mappedBy="fkGp")
@@ -107,6 +114,15 @@ class Gp
 
     public function getResults() {
         return $this->results;
+    }
+
+    public function getGpDate() {
+        return $this->gpDate;
+    }
+
+    public function setGpDate(\DateTime $gpDate) {
+        $this->gpDate = $gpDate;
+        return $this;
     }
 }
 

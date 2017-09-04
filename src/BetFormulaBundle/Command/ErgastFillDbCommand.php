@@ -5,6 +5,9 @@ use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
+use Symfony\Component\Serializer\Serializer;
+
 use ErgastClientBundle\Manager\ApiManager;
 use BetFormulaBundle\Entity\Ecurie;
 use BetFormulaBundle\Entity\Saison;
@@ -28,6 +31,8 @@ class ErgastFillDbCommand extends ContainerAwareCommand
     {
         $em = $this->getContainer()->get('doctrine')->getManager();
         $apiManager = new ApiManager();
+        $serializer = new Serializer(array(new DateTimeNormalizer()));
+
         $progressBar = new ProgressBar($output, 50);
         $progressBar->setFormatDefinition('custom', ' %current%/%max% -- %message%');
         $progressBar->setFormat('custom');
@@ -84,11 +89,13 @@ class ErgastFillDbCommand extends ContainerAwareCommand
         $gps = $apiManager->get('f1', 'current');
         foreach($gps->MRData->RaceTable->Races as $gp) {
             $progressBar->setMessage('Adding GP : ' . $gp->raceName);
+            $date = $serializer->denormalize($gp->date . 'T' . $gp->time, \DateTime::class);
             $gpe = new Gp();
             $gpe->setFkFor($serie);
             $gpe->setFkSai($season);
             $gpe->setGpLibelle($gp->raceName);
             $gpe->setGpRound($gp->round);
+            $gpe->setGpDate($date);
             $em->persist($gpe);
 
             $progressBar->setMessage('Filling Results for GP : ' . $gp->raceName);
