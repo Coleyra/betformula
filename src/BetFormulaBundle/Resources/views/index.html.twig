@@ -4,9 +4,12 @@
 <h1>Bet Formula</h1>
 <h2>Season 2017</h2>
 <ul>
+    <h1>Prochain Gp</h1>
+    <h3>GP {{nextGp.gpId}} : {{nextGp.gpLibelle}} - {{nextGp.gpDate|date('d/m/Y - H:i', "Europe/Paris")}} <a href="" class="btn btn-success">Miser</a></h3>
+
     {% for gp in gps %}
         <li>
-            <h3>GP {{gp.gpId}} : {{gp.gpLibelle}}</h3>
+            <h3>GP {{gp.gpId}} : {{gp.gpLibelle}} - {{gp.gpDate|date('d/m/Y - H:i', "Europe/Paris")}}</h3>
             <ul>
                 {% for result in gp.results %}
                     <li>{{ result.resPosition }} : {{ result.fkPil.pilNom }}</li>
